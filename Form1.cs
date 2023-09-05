@@ -160,7 +160,7 @@ namespace XboxDXTConverter
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             // Set properties and options for the dialog to allow image files
-            openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff";
+            openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tga;*.tif;*.tiff";
             openFileDialog.Title = "Open Image File";
 
             // Show the dialog and check if the user clicked "OK"
