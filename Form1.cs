@@ -191,7 +191,7 @@ namespace XboxDXTConverter
                 {
                     MessageBox.Show("Error loading image: " + ex.Message);
                 }
-            }
+            } 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
