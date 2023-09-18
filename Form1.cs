@@ -159,6 +159,7 @@ namespace XboxDXTConverter
             // Create an OpenFileDialog instance
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            toolStripStatusLabel1.Text = "| ";
             // Set properties and options for the dialog to allow image files
             openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tga;*.tif;*.tiff";
             openFileDialog.Title = "Open Image File";
@@ -226,18 +227,32 @@ namespace XboxDXTConverter
             string executablePath = Environment.CurrentDirectory + @"\bin\crunch_x64.exe";
 
             string dxt3 = ""; 
+            string imageType = ""; 
 
             if (rbDXT3.Checked == true)
             {
                 dxt3 = "-dxt3"; // USE DXT3
             }
-            else
+
+            if (rbARGB.Checked == true)
             {
-                dxt3 = "-a8r8g8b8"; // USE ARGB 
+                dxt3 = "-a8r8g8b8"; // USE DXT3
+            } 
+
+            if (rbDDS.Checked == true)
+            {
+                imageType = "dds"; // USE dds
             }
+            
+            if (rbBMP.Checked == true)
+            {
+                imageType = "bpm"; // USE dds
+            }
+             
+
 
             string quote = "\""; // " //  
-            string arguments = $"-file {quote + textBox1.Text + quote} -fileformat dds {dxt3}"; 
+            string arguments = $"-file {quote + textBox1.Text + quote} -fileformat {imageType} {dxt3}"; 
 
             // Create a new process start info
             ProcessStartInfo startInfo = new ProcessStartInfo
@@ -275,16 +290,14 @@ namespace XboxDXTConverter
             // Close the process
             process.Close();
 
-            toolStripProgressBar1.Visible = false;
-
-
+            toolStripProgressBar1.Visible = false; 
 
             // Let's try moving our completed file
             try
             {
 
                 // tmpLocation
-                if (!File.Exists(Environment.CurrentDirectory + @"\" + imageName +".dds"))
+                if (!File.Exists(Environment.CurrentDirectory + @"\" + imageName + $".{imageType}"))
                 {
                     // The file did not create, there for something failed.
                     MessageBox.Show("Something went wrong. Please open the debugger for more information.");
@@ -299,6 +312,7 @@ namespace XboxDXTConverter
                 File.Move(Environment.CurrentDirectory + @"\" + imageName + ".dds", Environment.CurrentDirectory + @"\exported\" + imageName + ".dds");
 
                 button3.PerformClick();
+                toolStripStatusLabel1.Text = "| Export completed successfully.";
             }
             catch (Exception ex)
             {
@@ -311,8 +325,16 @@ namespace XboxDXTConverter
         }
 
         private void debugToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
-            frmDebug.Show();
+        {
+            try
+            {
+                frmDebug.Show();
+
+            }
+            catch
+            {
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -58,6 +58,10 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbDDS = new System.Windows.Forms.RadioButton();
+            this.rbBMP = new System.Windows.Forms.RadioButton();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxNO.SuspendLayout();
             this.lksnhdgoiuhseg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,6 +70,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -112,11 +117,11 @@
             // rbARGB
             // 
             this.rbARGB.AutoSize = true;
-            this.rbARGB.Location = new System.Drawing.Point(108, 19);
+            this.rbARGB.Location = new System.Drawing.Point(104, 19);
             this.rbARGB.Name = "rbARGB";
-            this.rbARGB.Size = new System.Drawing.Size(166, 17);
+            this.rbARGB.Size = new System.Drawing.Size(55, 17);
             this.rbARGB.TabIndex = 6;
-            this.rbARGB.Text = "ARGB - Transparancy Images";
+            this.rbARGB.Text = "ARGB";
             this.rbARGB.UseVisualStyleBackColor = true;
             // 
             // groupBoxNO
@@ -126,7 +131,7 @@
             this.groupBoxNO.Controls.Add(this.rbARGB);
             this.groupBoxNO.Location = new System.Drawing.Point(6, 50);
             this.groupBoxNO.Name = "groupBoxNO";
-            this.groupBoxNO.Size = new System.Drawing.Size(280, 49);
+            this.groupBoxNO.Size = new System.Drawing.Size(165, 49);
             this.groupBoxNO.TabIndex = 7;
             this.groupBoxNO.TabStop = false;
             this.groupBoxNO.Text = "Image Format";
@@ -134,9 +139,9 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Location = new System.Drawing.Point(423, 56);
+            this.button2.Location = new System.Drawing.Point(429, 56);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 42);
+            this.button2.Size = new System.Drawing.Size(75, 42);
             this.button2.TabIndex = 9;
             this.button2.Text = "Export Image";
             this.button2.UseVisualStyleBackColor = true;
@@ -263,6 +268,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.button3);
@@ -294,12 +300,12 @@
             // 
             this.groupBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox5.Controls.Add(this.aspectRatioComboBox);
-            this.groupBox5.Location = new System.Drawing.Point(292, 50);
+            this.groupBox5.Location = new System.Drawing.Point(303, 50);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(131, 49);
+            this.groupBox5.Size = new System.Drawing.Size(120, 49);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Preview Aspect Ratio:";
+            this.groupBox5.Text = "Preview:";
             // 
             // aspectRatioComboBox
             // 
@@ -311,7 +317,7 @@
             "1:1"});
             this.aspectRatioComboBox.Location = new System.Drawing.Point(12, 19);
             this.aspectRatioComboBox.Name = "aspectRatioComboBox";
-            this.aspectRatioComboBox.Size = new System.Drawing.Size(113, 21);
+            this.aspectRatioComboBox.Size = new System.Drawing.Size(102, 21);
             this.aspectRatioComboBox.TabIndex = 0;
             // 
             // button3
@@ -338,7 +344,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1});
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(621, 22);
@@ -352,6 +359,46 @@
             this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.toolStripProgressBar1.Value = 50;
             this.toolStripProgressBar1.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.rbDDS);
+            this.groupBox2.Controls.Add(this.rbBMP);
+            this.groupBox2.Location = new System.Drawing.Point(177, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(120, 49);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Image Type";
+            // 
+            // rbDDS
+            // 
+            this.rbDDS.AutoSize = true;
+            this.rbDDS.Checked = true;
+            this.rbDDS.Location = new System.Drawing.Point(6, 19);
+            this.rbDDS.Name = "rbDDS";
+            this.rbDDS.Size = new System.Drawing.Size(48, 17);
+            this.rbDDS.TabIndex = 5;
+            this.rbDDS.TabStop = true;
+            this.rbDDS.Text = "DDS";
+            this.rbDDS.UseVisualStyleBackColor = true;
+            // 
+            // rbBMP
+            // 
+            this.rbBMP.AutoSize = true;
+            this.rbBMP.Location = new System.Drawing.Point(60, 19);
+            this.rbBMP.Name = "rbBMP";
+            this.rbBMP.Size = new System.Drawing.Size(48, 17);
+            this.rbBMP.TabIndex = 6;
+            this.rbBMP.Text = "BMP";
+            this.rbBMP.UseVisualStyleBackColor = true;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel1.Text = "| ";
             // 
             // Form1
             // 
@@ -386,6 +433,8 @@
             this.groupBox5.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,6 +470,10 @@
         private System.Windows.Forms.ComboBox aspectRatioComboBox;
         private System.Windows.Forms.Panel groupBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbDDS;
+        private System.Windows.Forms.RadioButton rbBMP;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
